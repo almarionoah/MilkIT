@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="text-align: center;">Quotation</ion-title>
+    <div id="quote_header">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="4">
+                <p id="company_details">
+                    <strong>MilkIT</strong><br/><strong>Northern Cape Branch:</strong><br/>33 St Augustines Rd Kimberley 8301<br/>Phone: 053 861 4341<br/><strong>Free State Branch:</strong><br/>101 Victoria Rd, Universtars, Bloemfontein, 9301<br/>Phone: 051 444 4472<br/>Fax<br/>E-mail<br/>
+                  </p>
+            </ion-col>
+            <ion-col size="4">
+            </ion-col>
+            <ion-col size="4">
+                <p id="quote_details">
+                    Date:{{getDate()| date: "longDate"}}<br />Quote Number: <ion-text [(ngModel)]="quoteNumber" ngDefaultControl>{{quoteNumber}}</ion-text> <br/>Valid Period: {{getDate() | date: "longDate"}} until {{getValidityPeriod() | date: "longDate"}}<br/>
+                  </p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <section id="print_selection">
+        <table id="quote" class="table table-striped">
+          <tr>
+            <th>Item Number</th>
+            <th>Description</th>
+            <th>Item Price</th>
+            <th>Quantity</th>
+            <th>Sub-Total</th>
+          </tr>
+          <tr *ngFor="let item of cartItems">
+            <td></td>
+            <td>{{item.product_name}} &nbsp; {{item.product_size}}</td>
+            <td>$ {{item.product_price.toFixed(2)}}</td>
+            <td>{{item.quantity}}</td>
+            <td>$ {{computeSubTotal(item.quantity, item.product_price).toFixed(2)}}</td>
+          </tr>
+          <tr>
+              <td></td><td></td><td></td><td><strong>Grand Total:</strong></td><td><code>$ {{getTotal().toFixed(2)}}</code></td>
+          </tr>
+        </table>
+        <br/>
+        <br/>
+        <br/>
+        <ion-grid>
+          <ion-row>
+          <ion-col siz="6">
+            <button ion-button id="backButton" class="btn btn-primary" style="top: 60%;left: 15%;border-radius: 50%;box-shadow: 10px 10px;font-size: 1vw;color: black;" routerLink="/products" routerDirection="backwards" routerLinkActive="router-link-active" ><span class="glyphicon glyphicon-backward"></span>Return</button>
+          </ion-col>
+          <ion-col size="6">
+            <button ion-button id="purchaseButton" class="btn btn-success" style="top: 60%;border-radius: 50%;box-shadow: 10px 10px;font-size: 1vw;color: black;" routerLink="/payment" routerDirection="forward">Proceed to Payment</button>
+          </ion-col>    
+          </ion-row>
+        </ion-grid>
+    </section>
+</ion-content>

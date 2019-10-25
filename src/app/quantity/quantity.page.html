@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="9">
+            <h6>Quantity(per dozen)</h6>
+        </ion-col>
+        <ion-col size="3">
+            <span ion-button class='closeBtn' (click)="closeQuantityDialog()" style=" margin-left: 15px;color: black;font-weight: bold;float: right;font-size: 22px;line-height: 20px;cursor: pointer;transition: 0.3s;"> <h5>&times;</h5> </span>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+          <label ion-label for="quantity">Quantity:</label>
+          <ion-input type="number" placeholder="quantity per dozen" name="quantity" [(ngModel)]="quantity" id="quantity"></ion-input>      
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+        <button  [ngClass]="{'btn-default' : btnAddToCartIsEnabled === true,'btn-success': btnAddToCartIsEnabled === false}"
+         ion-button (click)="addToCart()"  [disabled]="btnAddToCartIsEnabled"><h4>Add To Cart</h4></button>
+      </ion-col>
+      <ion-col size="6">
+          <button class="btn-danger" (click)="removeFromCart()" id="removeFromCart" [(disabled)]="btnRemoveFromCartIsEnabled"><h6><span class="glyphicon glyphicon-backward"></span><br/>Remove from Cart</h6></button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>A charge of $ <code>{{getTotal().toFixed(2)}}</code> will be placed</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  	<div class="alertBox" id="card_payment_error" style="background-color:red;height: 20%;" hidden></div>
+    <ion-card>
+    <form id="form">
+      <label for="card_number">Card Number:</label>
+      <input ion-input type="text" placeholder="Card Number" id="card_number" />
+      <br/><br/>
+      <label for="expiry_date">Expiry Date:</label>
+      <ion-datetime  displayFormat="MMMM YY" min="2020-06-04" max="2025-12-31" id="expiry_date" [value]="getDate()" style="border: 3px;color: gray;"></ion-datetime><label>example: MM\YY</label>
+      <br/><br/>
+      <label for="cvv">cvv (3 digits at the back of card):</label>
+      <input ion-input type="text" placeholder="cvv" id="cvv" size="3">
+      <br/><br/>
+      <label for="email">E-mail:</label>
+      <input ion-input type="email" placeholder="E-mail" id="email" name="email">
+      <br/><br/>
+      </form>
+      <ion-grid>
+        <ion-row>
+          <button ion-button type="button" id="btnBack" routerLink="/products" routerLinkActive="router-link-active" routerDirection="backward"  class="btn btn-primary"><h4>Back</h4></button><br/><br/>
+          <button ion-button type="button" id="order" class="btn btn-success" [(disabled)]="areFieldsValid">Place Order</button>
+        </ion-row>
+      </ion-grid>
+      <br/><br/><img src="/src/assets/credit_providers.png" alt="credit_provider_images" style="max-width: 200px;max-height:200px;" />
+    </ion-card>
+    </ion-content>
