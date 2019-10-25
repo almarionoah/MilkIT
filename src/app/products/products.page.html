@@ -4,7 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="appBackground">
     <section id="products_selection" [(hidden)]="isProductsSelected">
         <ion-grid>
             <ion-row>
@@ -55,6 +55,6 @@
             </ion-item>
           </ion-list>
         </div>
-        <button ion-button type="button" class="btn btn-success" value="Check Out" id="check_out" style="width:200px;height:200px;max-height:10%;max-width:15%;position:fixed;top: 60%;right: 10%;border-radius:50%;color:black;font-size: 1vw;box-shadow: 10px 10px;" routerLink="quotation"  routerDirection="forward"><span class="glyphicon glyphicon-shopping-cart"></span><br/>Check Out <br/>{{getCartLength()}} items</button>
+        <button ion-button type="button" class="btn btn-success" value="Check Out" id="check_out" style="width:200px;height:200px;max-height:10%;max-width:15%;position:fixed;top: 60%;right: 10%;border-radius:50%;color:black;font-size: 1vw;box-shadow: 10px 10px;" routerLink="/quotation"  routerDirection="forward"><span class="glyphicon glyphicon-shopping-cart"></span><br/>Check Out <br/>{{getCartLength()}} items</button>
         </section>
 </ion-content>
