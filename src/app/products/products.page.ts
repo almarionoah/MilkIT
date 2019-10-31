@@ -3,6 +3,7 @@ import { Products } from './products.model';
 import { PopoverController } from '@ionic/angular';
 import { QuantityPage } from '../quantity/quantity.page';
 import {ProductListService} from '../product-list.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -16,11 +17,11 @@ export class ProductsPage implements OnInit {
   successAddAlertShouldShow = true;
   successRemoveAlertShouldShow = true;
   emptyCartAlertShouldShow = true;
-  isProductsSelected = false;
+  productColorScheme = '';
   isPrintSelected = true;
   cartItems = [];
   total = 0;
-  constructor(private popoverController: PopoverController, private productList: ProductListService) { }
+  constructor(private popoverController: PopoverController, private productList: ProductListService, private router: Router) { }
   ngOnInit() {
     this.products = this.productList.getProducts();
   }
@@ -54,6 +55,24 @@ export class ProductsPage implements OnInit {
  }
  getCartLength() {
   return this.productList.getCartLength();
+ }
+
+ isInCart(productID) {
+  return this.productList.isInCart(productID);
+ }
+
+ productColor(productID) {
+  const isProductInCart = this.isInCart(productID);
+  if (isProductInCart === true) {
+    return 'tertiary';
+  }
+ }
+
+ openQuotation() {
+   const cartLength = this.getCartLength();
+   if (cartLength > 0) {
+     this.router.navigateByUrl('/quotation');
+   }
  }
 
 }

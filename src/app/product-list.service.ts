@@ -174,8 +174,9 @@ export class ProductListService {
         const item = currentCart[i];
         if (item.product_id === productId) {
             currentCart.splice(i, 1);
+            console.log(currentCart);
+            break;
           }
-        break;
         }
       return true;
       }

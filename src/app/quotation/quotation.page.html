@@ -13,7 +13,7 @@
             </ion-col>
             <ion-col size="4">
                 <p id="quote_details">
-                    Date:{{getDate()| date: "longDate"}}<br />Quote Number: <ion-text [(ngModel)]="quoteNumber" ngDefaultControl>{{quoteNumber}}</ion-text> <br/>Valid Period: {{getDate() | date: "longDate"}} until {{getValidityPeriod() | date: "longDate"}}<br/>
+                    Date: {{getDate()| date: "longDate"}}<br />Quote Number: <ion-text [(ngModel)]="quoteNumber" ngDefaultControl>{{quoteNumber}}</ion-text> <br/>Valid Period: {{getDate() | date: "longDate"}} until {{getValidityPeriod() | date: "longDate"}}<br/>
                   </p>
             </ion-col>
           </ion-row>
@@ -32,8 +32,8 @@
             <th>Quantity</th>
             <th>Sub-Total</th>
           </tr>
-          <tr *ngFor="let item of cartItems">
-            <td></td>
+          <tr *ngFor="let item of cartItems; let i = index">
+            <td>{{i + 1}}</td>
             <td>{{item.product_name}} &nbsp; {{item.product_size}}</td>
             <td>$ {{item.product_price.toFixed(2)}}</td>
             <td>{{item.quantity}}</td>
@@ -48,10 +48,10 @@
         <br/>
         <ion-grid>
           <ion-row>
-          <ion-col siz="6">
+          <ion-col siz="10">
             <button ion-button id="backButton" class="btn btn-primary" style="top: 60%;left: 15%;border-radius: 50%;box-shadow: 10px 10px;font-size: 1vw;color: black;" routerLink="/products" routerDirection="backwards" routerLinkActive="router-link-active" ><span class="glyphicon glyphicon-backward"></span>Return</button>
           </ion-col>
-          <ion-col size="6">
+          <ion-col size="2">
             <button ion-button id="purchaseButton" class="btn btn-success" style="top: 60%;border-radius: 50%;box-shadow: 10px 10px;font-size: 1vw;color: black;" routerLink="/payment" routerDirection="forward">Proceed to Payment</button>
           </ion-col>    
           </ion-row>

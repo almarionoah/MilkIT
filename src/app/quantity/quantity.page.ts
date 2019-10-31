@@ -48,10 +48,12 @@ export class QuantityPage implements OnInit {
 
   removeFromCart() {
     const productId = this.navParameter.get('productID');
+    console.log(productId);
     this.btnRemoveFromCartIsEnabled =  !(this.productList.removeItem(productId));
-    this.closeQuantityDialog();
     this.productIsRemoved = true;
     this.productIsAdded = false;
+    this.closeQuantityDialog();
+ 
   }
 
   closeQuantityDialog() {

@@ -1,3 +1,7 @@
-.appBackground{
-    background: url('/src/assets/background.png');
+content{
+    [ion-card]
+    {
+        --background:  linear-gradient(purple,red);
+    }
+    
 }

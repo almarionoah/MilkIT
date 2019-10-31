@@ -1,16 +1,16 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header >
+  <ion-toolbar color="primary">
     <ion-title>Select Products</ion-title>
   </ion-toolbar>
 </ion-header>
+<code>
+  <h3>
+    Cart Total: $<input [value]="getTotal().toFixed(2)" readonly="true" name="grandTotal"/>
+  </h3>
+</code>
 
-<ion-content class="appBackground">
-    <section id="products_selection" [(hidden)]="isProductsSelected">
-        <ion-grid>
-            <ion-row>
-              <code><h3>$<input [value]="getTotal().toFixed(2)" readonly="true" /></h3></code>
-            </ion-row>
-          </ion-grid>
+<ion-content>
+    <section id="products_selection">
   <!--alert section-->
     <header>
         <div class="alertBox" id="quantity_alert" style="background-color:red;height: 20%;" [(hidden)]="quantityAlertShouldShow">
@@ -35,11 +35,11 @@
         <!--product list-->
         <div id="products">
           <ion-list>
-            <ion-item *ngFor="let product of products">  
+            <ion-item *ngFor="let product of products" lines="none">  
               <ion-grid>
                 <ion-row style="width:100%;">
                   <ion-col>
-                      <ion-card button (click)="toggleQuantity(product.product_id)">
+                      <ion-card button (click)="toggleQuantity(product.product_id)" [color]="productColor(product.product_id)">
                           <ion-grid>
                             <ion-row>
                               <ion-avatar>
@@ -55,6 +55,7 @@
             </ion-item>
           </ion-list>
         </div>
-        <button ion-button type="button" class="btn btn-success" value="Check Out" id="check_out" style="width:200px;height:200px;max-height:10%;max-width:15%;position:fixed;top: 60%;right: 10%;border-radius:50%;color:black;font-size: 1vw;box-shadow: 10px 10px;" routerLink="/quotation"  routerDirection="forward"><span class="glyphicon glyphicon-shopping-cart"></span><br/>Check Out <br/>{{getCartLength()}} items</button>
+      <button ion-button type="button" class="btn btn-success" value="Check Out" id="check_out" style="position:fixed;top: 60%;right: 10%;border-radius:50%;color:black;font-size: 1vw;box-shadow: 10px 10px;" (click)="openQuotation()"><span class="glyphicon glyphicon-shopping-cart"></span><br/>Check Out <br/>{{getCartLength()}} items</button>
         </section>
 </ion-content>
+<!--width:200px;height:200px;max-height:10%;max-width:15%;-->
