@@ -1,0 +1,7 @@
+{
+  "name": "MilkIT",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
