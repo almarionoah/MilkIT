@@ -13,7 +13,7 @@ export class ProductListService {
       product_name: 'milk sachet',
       product_size: '1L',
       product_price: 12.50,
-      product_url: '',
+      product_url: './assets/milk_sachet.jpg',
       quantity: 0
     },
     {
@@ -21,7 +21,7 @@ export class ProductListService {
       product_name: 'milk bottle',
       product_size: '2L',
       product_price: 16.00,
-      product_url: '',
+      product_url: './assets/juice_bottle_2L_litchi.jpg',
       quantity: 0
     },
     {
@@ -29,7 +29,7 @@ export class ProductListService {
       product_name: 'milk bottle',
       product_size: '250 ml',
       product_price: 6.00,
-      product_url: '',
+      product_url: './assets/cream_250ml.jpg',
       quantity: 0
     },
     {
@@ -37,7 +37,7 @@ export class ProductListService {
       product_name: 'milk bottle',
       product_size: '500ml',
       product_price: 8.00,
-      product_url: '',
+      product_url: './assets/cream_250ml.jpg',
       quantity: 0
     },
     {
@@ -45,7 +45,7 @@ export class ProductListService {
       product_name: 'cream',
       product_size: '2L',
       product_price: 22.00,
-      product_url: '',
+      product_url: './assets/Yougurt_Apricot.jpg',
       quantity: 0
     },
     {
@@ -53,10 +53,10 @@ export class ProductListService {
       product_name: 'cream',
       product_size: '1L',
       product_price: 18.00,
-      product_url: '',
+      product_url: './assets/cream_1L.jpg',
       quantity: 0
     },
-    {
+    /*{
       product_id: 6,
       product_name: 'cream',
       product_size: '500ml',
@@ -69,7 +69,7 @@ export class ProductListService {
       product_name: 'cream',
       product_size: '250ml',
       product_price: 6.50,
-      product_url: '',
+      product_url: './assets/cream_250ml.jpg',
       quantity: 0
     },
     {
@@ -87,13 +87,13 @@ export class ProductListService {
       product_price: 11.00,
       product_url: '',
       quantity: 0
-    },
+    },*/
     {
       product_id: 10,
       product_name: 'juice',
       product_size: '1L',
       product_price: 15.00,
-      product_url: '',
+      product_url: './assets/cream_1L.jpg',
       quantity: 0
     },
     {
@@ -101,7 +101,7 @@ export class ProductListService {
       product_name: 'juice',
       product_size: '2L',
       product_price: 20.00,
-      product_url: '',
+      product_url: './assets/juice_bottle_2L_fruit_cocktail.jpg',
       quantity: 0
     },
     {
@@ -109,7 +109,7 @@ export class ProductListService {
       product_name: 'juice',
       product_size: '5L',
       product_price: 28.00,
-      product_url: '',
+      product_url: './assets/juice_bottle_2L_cocopine.jpg',
       quantity: 0
     },
     {
@@ -117,18 +117,18 @@ export class ProductListService {
       product_name: 'yogurt',
       product_size: '2L',
       product_price: 25.00,
-      product_url: '',
+      product_url: './assets/Yougurt_Apricot.jpg',
       quantity: 0
     },
     {
       product_id: 14,
       product_name: 'yogurt',
-      product_size: '1L',
+      product_size: '1 Kilogram (metric system)',
       product_price: 18.50,
-      product_url: '',
+      product_url: './assets/Yougurt_Strawberry_1KG.jpg',
       quantity: 0
     },
-    {
+    /*{
       product_id: 15,
       product_name: 'yogurt',
       product_size: '500ml',
@@ -143,13 +143,13 @@ export class ProductListService {
       product_price: 9.00,
       product_url: '',
       quantity: 0
-    },
+    },*/
     {
       product_id: 17,
       product_name: 'turtles',
       product_size: '1.2L',
       product_price: 40.00,
-      product_url: '',
+      product_url: './assets/Turtles.jpg',
       quantity: 0
     }
   ];

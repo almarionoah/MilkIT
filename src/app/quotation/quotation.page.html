@@ -35,9 +35,9 @@
           <tr *ngFor="let item of cartItems; let i = index">
             <td>{{i + 1}}</td>
             <td>{{item.product_name}} &nbsp; {{item.product_size}}</td>
-            <td>$ {{item.product_price.toFixed(2)}}</td>
+            <td>R {{item.product_price.toFixed(2)}}</td>
             <td>{{item.quantity}}</td>
-            <td>$ {{computeSubTotal(item.quantity, item.product_price).toFixed(2)}}</td>
+            <td>R {{computeSubTotal(item.quantity, item.product_price).toFixed(2)}}</td>
           </tr>
           <tr>
               <td></td><td></td><td></td><td><strong>Grand Total:</strong></td><td><code>$ {{getTotal().toFixed(2)}}</code></td>

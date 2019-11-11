@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavParams, PopoverController } from '@ionic/angular';
 import { ProductListService } from '../product-list.service';
-import { $ } from 'protractor';
 import { popoverController } from '@ionic/core';
 import { ProductsPage } from '../products/products.page';
 
@@ -18,7 +17,9 @@ export class QuantityPage implements OnInit {
  productIsAdded = false;
  productIsRemoved = false;
  quantityIsCorrect = false;
+ popoverController: PopoverController;
   constructor(private navParameter: NavParams, private productList: ProductListService, popoverController: PopoverController) {
+    this.popoverController = popoverController;
   }
 
   ngOnInit() {
@@ -53,7 +54,6 @@ export class QuantityPage implements OnInit {
     this.productIsRemoved = true;
     this.productIsAdded = false;
     this.closeQuantityDialog();
- 
   }
 
   closeQuantityDialog() {

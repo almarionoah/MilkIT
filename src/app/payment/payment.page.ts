@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductListService } from '../product-list.service';
 import * as $ from 'jquery';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 declare var paysafe: any;
 
@@ -17,10 +17,12 @@ export class PaymentPage implements OnInit {
   areFieldsValid = true;
   expiryDate = new Date();
   http: HttpClient;
-  constructor(productList: ProductListService, alertController: AlertController, http: HttpClient) {
+  nav: NavController;
+  constructor(productList: ProductListService, alertController: AlertController, http: HttpClient, nav: NavController) {
     this.productList = productList;
     this.alertController = alertController;
     this.http = http;
+    this.nav = nav;
   }
 
   ngOnInit() {
@@ -49,7 +51,7 @@ export class PaymentPage implements OnInit {
     header.append('Content-Type', 'application/json' );
     header.append('Access-Control-Allow-Origin', '*');
     header.append('Authorization: Basic ', this.getApiKey());
-    this.http.post('https://api.test.paysafe.com/cardpayments/v1/accounts/1001516590/auths/', cardDetailsEncoded, { headers: header })
+    this.http.post('https://api.paysafe.com/cardpayments/v1/accounts/1001516590/auths/', cardDetailsEncoded, { headers: header })
     .subscribe(async (response) => {
       console.log(response);
       const alert = await this.alertController.create({
@@ -58,7 +60,7 @@ export class PaymentPage implements OnInit {
         buttons: [{
           text: 'Okay',
           handler: () => {
-            this.closePaymentGateWay();
+            this.moveToLocalePage();
           }}]
       });
       await alert.present();
@@ -194,12 +196,12 @@ getDate() {
   return new Date();
 }
 
-  closePaymentGateWay() {
-
+  moveToLocalePage() {
+    this.nav.navigateForward('/location/');
   }
 
   navigateBack() {
-
+    this.nav.navigateBack('/quotation/');
   }
 
 }

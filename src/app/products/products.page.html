@@ -5,7 +5,7 @@
 </ion-header>
 <code>
   <h3>
-    Cart Total: $<input [value]="getTotal().toFixed(2)" readonly="true" name="grandTotal"/>
+    Cart Total: R<input [value]="getTotal().toFixed(2)" readonly="true" name="grandTotal"/>
   </h3>
 </code>
 
@@ -43,9 +43,13 @@
                           <ion-grid>
                             <ion-row>
                               <ion-avatar>
-                                <ion-img slot="start" [src]="product.product_url"></ion-img>
+                             <img [(src)]="product.product_url" />
                               </ion-avatar>
-                            <h3>{{product.product_name}} <br/> {{product.product_size}} @ {{product.product_price | currency}}</h3>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <h3 style="text-align: center;">{{product.product_name}} <br/> {{product.product_size}} @ R {{product.product_price.toFixed(2)}}</h3>
+                            </ion-row>
+                            <ion-row *ngIf="product.product_name === 'juice'">
+                              <h4># Flavours as available within store #</h4>
                             </ion-row>
                           </ion-grid>
                         </ion-card>
